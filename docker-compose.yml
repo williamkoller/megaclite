@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  megaclite-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: megaclite-api
+    entrypoint: sh -c 'yarn install --frozen-lockfile && yarn start:dev'
+    env_file:
+      - ${PATH_ENVIRONMENT}
+    ports:
+      - ${PORT}:${PORT}
+    networks:
+      - megaclite-net
+    volumes:
+      - '/app/node_modules'
+      - './:/app'
+
+networks:
+  megaclite-net:
+    driver: bridge
