@@ -1,3 +1,4 @@
+import { HealthCheckHttpInterface } from '@/data/protocols/http/health-check/health-check.interface';
 import { Controller, Get, Redirect } from '@nestjs/common';
 import {
   ApiExcludeEndpoint,
@@ -8,7 +9,7 @@ import {
 
 @ApiTags('health-check')
 @Controller()
-export class HealthCheckController {
+export class HealthCheckController implements HealthCheckHttpInterface {
   @Get('health-check')
   @ApiOperation({
     summary: 'Health Check',
