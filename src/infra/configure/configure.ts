@@ -1,6 +1,6 @@
 import { ConfigService } from '@nestjs/config';
-import { ApplicationInterface } from '../../domain/database/application.interface';
 import { Injectable } from '@nestjs/common';
+import { ApplicationInterface } from '@/data/protocols/db/app/application.interface';
 
 @Injectable()
 export class Configure implements ApplicationInterface {
